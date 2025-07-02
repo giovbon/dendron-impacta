@@ -1,6 +1,6 @@
 #import "funcs.typ"
 
-#let APIs = [
+#let REST = [
 
 = APIs <api_def>
 
@@ -110,7 +110,7 @@ O *versionamento de APIs*, é uma prática essencial para garantir que mudanças
 
 Imagine uma equipe de back-end desenvolvendo uma API e outra de front-end precisando consumi-la ao mesmo tempo. Sem uma documentação de API a comunicação entre as equipes seria confusa e cheia de erros. Com o Swagger, a equipe de front-end pode visualizar todos os endpoints, parâmetros e respostas diretamente em uma interface interativa no navegador, além de poder testar as chamadas da API sem escrever código. Isso agiliza o desenvolvimento, evita retrabalho e melhora a colaboração entre times.
 
-=== 4 Níveis de Maturidade
+== 4 Níveis de Maturidade
 
 Os 4 níveis de maturidade de uma API REST foram propostos por Leonard Richardson e representam um modelo progressivo que mostra o quanto uma API realmente adere aos princípios REST.
 

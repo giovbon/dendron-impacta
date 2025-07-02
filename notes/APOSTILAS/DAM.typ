@@ -32,15 +32,13 @@
 
 #redes.introducao_redes
 
-#redes.internet
-
 #pagebreak()  
 
 #microsservicos.microsservicos-vs-monolitico
 
 #pagebreak() 
 
-#apis.APIs
+#apis.REST
 
 #pagebreak()
 
@@ -49,9 +47,6 @@
 #pagebreak() 
 
 #flask.flask
-
-
-
 
 
 

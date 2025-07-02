@@ -28,11 +28,6 @@ Os *tipos de redes* de computadores incluem LAN, WAN, MAN.
 - A *MAN* (_Metropolitan Area Network_) cobre uma área maior que uma LAN, mas menor que uma WAN, como uma cidade, e é frequentemente usada por empresas ou instituições para interconectar várias LANs; um exemplo seria uma rede que conecta diferentes filiais de uma empresa em uma área metropolitana.
 - A *WAN* (_Wide Area Network_) abrange áreas geográficas extensas, conectando redes locais em diferentes cidades ou países, como a internet, que interliga diversas LANs ao redor do mundo. 
 
-]
-
-
-#let internet = [
-
 == Internet
 / Internet: é a infraestrutura de uma rede global de computadores interconectados que trocam informações digitalizadas. Funciona com base em um conjunto de regras chamadas *protocolos*, que padronizam como os dados são enviados, roteados e recebidos. Dispositivos obtêm um endereço IP (Internet Protocol) que identifica unicamente cada nó na rede. #funcs.foot-link("https://youtu.be/AABqPceCwZk", "Como Funciona a Internet?")
 
