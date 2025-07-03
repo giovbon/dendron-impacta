@@ -140,4 +140,6 @@ Isso ocorre pois implementar HATEOAS requer que o servidor inclua links hipermí
 
 #figure(image("./img/APIs.png", width: 95%),caption: [Funcionamento de API RESTful.])
 
+Através dessa imagem pode-se dizer que uma API REST "descansa" (_rest_ em inglês significa descansar) até ser acionada por um cliente que solicita dados. Em uma arquitetura REST, a API permanece em um estado de espera, pronta para receber requisições HTTP. Quando um cliente faz uma solicitação, a API processa essa requisição e retorna a resposta apropriada. Esse modelo de operação é eficiente, pois a API não consome recursos desnecessariamente enquanto não está em uso, ativando-se apenas quando necessário.
+
 ]

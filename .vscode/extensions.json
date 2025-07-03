@@ -2,6 +2,7 @@
     "recommendations": [
         "myriad-dreamin.tinymist",
         "tomoki1207.pdf",
-        "dendron.dendron"
+        "dendron.dendron",
+        "marp-team.marp-vscode"
     ]
 }

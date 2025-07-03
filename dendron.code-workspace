@@ -16,7 +16,10 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggest.showSnippets": true,
     "editor.tabCompletion": "on",
-    "dendron.enableSelfContainedVaultWorkspace": true
+    "dendron.enableSelfContainedVaultWorkspace": true,
+    "files.associations": {
+      "plyconfig.json": "jsonc"
+    }
   },
   "extensions": {
     "recommendations": [
