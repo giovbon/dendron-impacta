@@ -4,6 +4,7 @@
 #import "../ASSUNTOS/python.typ"
 #import "../ASSUNTOS/apis.typ"
 #import "../ASSUNTOS/flask.typ"
+#import "../ASSUNTOS/docker.typ"
 
 #let titulo_doc = "Desenvolvimento de API e Microsserviços"
 #set page(
@@ -28,13 +29,28 @@
 
 #outline( title: [Conteúdo])
 
+// estilização dos blocos de código
+#show raw.where(block: false): box.with(
+  fill: luma(240),
+  inset: (x: 3pt, y: 0pt),
+  outset: (y: 3pt),
+  radius: 2pt,
+)
+
+#show raw.where(block: true): block.with(
+  fill: luma(250),
+  inset: 10pt,
+  radius: 4pt,
+)
+// estilização dos blocos de código
+
 #pagebreak() 
 
 #redes.introducao_redes
 
 #pagebreak()  
 
-#microsservicos.microsservicos-vs-monolitico
+#microsservicos.microsservicos
 
 #pagebreak() 
 
@@ -50,3 +66,4 @@
 
 #pagebreak() 
 
+#docker.docker-container

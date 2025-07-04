@@ -109,7 +109,7 @@ Através dessa demonstração vemos que a API permanece em um estado de espera, 
 
 == Aprofundando
 
-Vamos iniciar um projeto do zero, abaixo os comandos que deve executar: 
+Vamos iniciar um projeto do zero. Será uma API que permite realizar operações de CRUD #footnote("CRUD é um acrônimo que representa as quatro operações básicas de manipulação de dados: Criar (Create), Ler (Read), Atualizar (Update) e Excluir (Delete). Essas operações são essenciais para gerenciar dados em sistemas e aplicações, permitindo a adição, visualização, modificação e remoção de informações. O conceito é amplamente utilizado no desenvolvimento de software, especialmente em aplicações web e APIs."). Abaixo há os comandos e códigos que deve executar: 
 
 ```bash
 python -m venv env
@@ -138,8 +138,6 @@ O #link("https://www.sqlalchemy.org/", "SQLAlchemy") é uma biblioteca Python qu
 O #link("https://flask-sqlalchemy.readthedocs.io/en/stable/quickstart/","Flask-SQLAlchemy") é uma extensão do Flask que simplifica a integração do SQLAlchemy.
 
 Abaixo, o código define uma API RESTful usando Flask, Flask-RESTful e SQLAlchemy para gerenciar usuários armazenados em um banco de dados SQLite #footnote("SQLite é um sistema de banco de dados relacional leve que armazena os dados em um único arquivo local, sem precisar de um servidor dedicado. Ele interpreta comandos SQL e gerencia estruturas como tabelas e índices diretamente nesse arquivo, sendo ideal para aplicações pequenas, testes, protótipos e apps móveis."). Ele permite criar, listar, buscar, atualizar e excluir usuários por meio das rotas `/api/users/` e `/api/users/<id>`. A estrutura inclui validação de entrada com `reqparse`, formatação das respostas com `marshal_with` e mapeamento do modelo `UserModel` para a tabela do banco. 
-
-#line(length: 100%, stroke: 1pt)
 
 > `api.py`
 
@@ -183,7 +181,8 @@ class Users(Resource):
     # Retorna a lista de todos os usuários cadastrados
     @marshal_with(userFields)
     def get(self):
-        return UserModel.query.all()
+        users = UserModel.query.all()
+        return users
     
     # Cria um novo usuário com os dados fornecidos e retorna todos os usuários
     @marshal_with(userFields)
@@ -192,7 +191,8 @@ class Users(Resource):
         user = UserModel(username=args["username"], email=args["email"])    
         db.session.add(user)
         db.session.commit()
-        return UserModel.query.all(), 201
+        users = UserModel.query.all()
+        return users, 201
 
 class User(Resource):
     # Retorna os dados de um único usuário com base no ID
@@ -213,7 +213,8 @@ class User(Resource):
         user.username = args["username"]
         user.email = args["email"]
         db.session.commit()
-        return UserModel.query.all(), 204
+        users = UserModel.query.all()
+        return users, 200
     
     # Exclui um usuário com base no ID fornecido
     @marshal_with(userFields)
@@ -225,7 +226,6 @@ class User(Resource):
         db.session.commit()
         return user
 
-
 # Registro dos recursos na API com suas rotas
 api.add_resource(Users, '/api/users/')
 api.add_resource(User, '/api/users/<int:id>')
@@ -236,8 +236,6 @@ if __name__ == '__main__':
 
 ```
 
-#line(length: 100%, stroke: 1pt)
-
 > `create_db.py`
 
 ```python
@@ -246,16 +244,37 @@ from api import app, db
 with app.app_context():
     db.create_all()
 ```
-O código acima (`create_db.py`) é usado para inicializar o banco de dados com as tabelas definidas nos modelos. Ao executar o comando `python create_db.py`, será criado o banco de dados no arquivo `instance/database.db`
+O código acima (em `create_db.py`) é usado para inicializar o banco de dados com as tabelas definidas nos modelos. Ao executar o comando `python create_db.py`, será criado o banco de dados no arquivo `instance/database.db`
 
-Em seguida, ao executar `python api.py`, o Flask inicia o servidor web local disponibilizando os endpoints da API para requisições HTTP. A partir daí você deve usar a extensão Ply para testar sua API:
+Em seguida, ao executar `python api.py`, o Flask inicia o servidor web local disponibilizando os endpoints da API para requisições HTTP. A partir daí você deve usar a extensão Ply para testar os endpoints de sua API (escolha o método HTTP adequado):
 
-+ Crie usuários
++ Crie 5 usuários
 + Liste todos os usuários cadastrados
 + Retorne os dados de um único usuário
 + Atualize os dados de um usuário
 + Exclua um usuário
 
+#line(length: 100%, stroke: 1pt)
+
+Abaixo o `requirements.txt` desse projeto.
+
+```
+aniso8601==10.0.1
+blinker==1.9.0
+click==8.2.1
+Flask==3.1.1
+Flask-RESTful==0.3.10
+Flask-SQLAlchemy==3.1.1
+greenlet==3.2.3
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+pytz==2025.2
+six==1.17.0
+SQLAlchemy==2.0.41
+typing_extensions==4.14.0
+Werkzeug==3.1.3
+```
 
 
 

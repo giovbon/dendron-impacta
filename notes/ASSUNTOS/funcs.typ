@@ -1,6 +1,6 @@
 // Funções
 
-/* #let imagem(caminho, tamanho, legenda) = [
+#let imagem(caminho, tamanho, legenda) = [
   
   #figure(
   image(caminho, width: tamanho),
@@ -8,7 +8,7 @@
     #legenda.
   ],
 )
-] */
+]
 
 #let foot-link(url, texto) = [
   #footnote[ #link(url)[#texto]] 
